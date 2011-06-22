@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS API Tutorial 1</title>
+    <style>
+      #my-map-jsobj,#my-map-html { height:500px; }
+    </style>
+  </head>
+  <body>
+    <p>JS Object (or JSON) Source</p>
+    <div id="my-map-jsobj"></div>
+    
+    <p>HTML Source</p>
+    <div id="my-map-html"></div>
+    <ul id="address-list">
+      <li>
+        <address>3862 Southeast Hawthorne Boulevard Portland, OR</address>
+        <p>The Hawthorne Theater in SE</p>
+      </li>
+      <li>
+        <address>8 Northwest 6th Avenue Portland, OR</address>
+        <p>The Roseland Theater on Burnside</p>
+      </li>
+      <li>
+        <address>1332 W. Burnside, Portland</address>
+        <p>A <strong style="color:red">very</strong> fun venue, the Crystal Ballroom</p>
+      </li>
+    </ul>
+    
+    <script src="http://api.batchgeo.com/js"></script>
+    <script>
+      var myAddresses = [
+        {
+          address:"3862 Southeast Hawthorne Boulevard Portland, OR",
+          info:"The Hawthorne Theater in SE"
+        },
+        {
+          address:"8 Northwest 6th Avenue Portland, OR",
+          info:"The Roseland Theater on Burnside"
+        },
+        {
+          address:"1332 W. Burnside, Portland",
+          info:"A <strong style=\"color:red\">very</strong> fun venue, the Crystal Ballroom"
+        }
+      ];
+      
+      batchgeo.ready(function(){
+        batchgeo('#my-map-jsobj').source(myAddresses).map();
+        batchgeo('#my-map-html').source('#address-list').map();
+      });
+    </script>
+  </body>
+</html>
